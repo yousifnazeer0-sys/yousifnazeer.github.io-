@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,108 +8,62 @@
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
+<!-- Particles.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <style>
 /* Global */
 * { box-sizing: border-box; margin:0; padding:0; scroll-behavior:smooth; font-family: 'Roboto', sans-serif;}
-body { background:#0f172a; color:#fff; }
+body { background:#0f172a; color:#fff; overflow-x:hidden; }
 
-/* Particles Background */
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+/* Particles background */
+#particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; }
 
 /* Header */
 header {
   text-align: center;
-  padding: 120px 20px;
+  padding: 150px 20px;
   background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  animation: gradient 10s ease infinite;
   clip-path: polygon(0 0,100% 0,100% 80%,0 100%);
   position: relative;
 }
 
-header h1 {
-  font-size: 48px;
-  text-shadow: 0 0 15px #3b82f6;
+@keyframes gradient {
+  0%{background: linear-gradient(135deg, #1e3a8a, #2563eb);}
+  50%{background: linear-gradient(135deg, #2563eb, #1e40af);}
+  100%{background: linear-gradient(135deg, #1e3a8a, #2563eb);}
 }
 
-header p {
-  margin-top:10px;
-  font-size:18px;
-  color:#cbd5e1;
-}
-
-.header-btn {
-  margin-top:25px;
-  padding:12px 25px;
-  border-radius:8px;
-  background:#3b82f6;
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s transform;
-}
+header h1 { font-size:48px; text-shadow:0 0 20px #3b82f6; }
+header p { margin-top:10px; font-size:18px; color:#cbd5e1; }
+.header-btn { margin-top:25px; padding:12px 25px; border-radius:8px; background:#3b82f6; color:white; text-decoration:none; font-weight:bold; transition:0.3s transform; }
 .header-btn:hover { transform: scale(1.1); }
 
 /* Sections */
 section { padding:70px 20px; max-width:900px; margin:auto; }
-
-h2 {
-  color:#3b82f6;
-  font-size:32px;
-  margin-bottom:30px;
-  text-align:center;
-  position:relative;
-}
-h2::after {
-  content:'';
-  width:80px;
-  height:3px;
-  background:#3b82f6;
-  display:block;
-  margin:10px auto 0;
-  border-radius:3px;
-}
+h2 { color:#3b82f6; font-size:32px; margin-bottom:30px; text-align:center; position:relative; }
+h2::after { content:''; width:80px; height:3px; background:#3b82f6; display:block; margin:10px auto 0; border-radius:3px; }
 
 /* Card */
-.card {
-  background:#1e293b;
-  padding:25px;
-  border-radius:15px;
-  margin-bottom:25px;
-  transition:0.3s transform,0.3s box-shadow;
-}
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(59,130,246,0.5);
-}
+.card { background:#1e293b; padding:25px; border-radius:15px; margin-bottom:25px; transition:0.3s transform,0.3s box-shadow; }
+.card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(59,130,246,0.6); }
 
 /* Skills */
-.skills span {
-  display:inline-block;
-  background:#2563eb;
-  padding:10px 15px;
-  margin:5px;
-  border-radius:8px;
-  font-size:14px;
-  transition:0.3s background;
-}
-.skills span:hover { background:#3b82f6; }
+.skills span { display:inline-block; background:#2563eb; padding:10px 15px; margin:5px; border-radius:8px; font-size:14px; transition:0.3s all; cursor:pointer;}
+.skills span:hover { background:#3b82f6; transform: scale(1.1); }
 
 /* Footer */
 footer { text-align:center; padding:40px 20px; background:#020617; color:#64748b; font-size:14px; }
 
 /* Responsive */
-@media(max-width:768px){
-  header h1 { font-size:36px; }
-  h2 { font-size:28px; }
-}
+@media(max-width:768px){ header h1{ font-size:36px; } h2{ font-size:28px; } }
 </style>
-
 </head>
 <body>
+
+<!-- Particles -->
+<div id="particles-js"></div>
 
 <!-- Header -->
 <header>
@@ -155,9 +109,9 @@ footer { text-align:center; padding:40px 20px; background:#020617; color:#64748b
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
-    <p>Email: your.email@example.com</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">yourprofile</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+    <p>Email: <a href="mailto:yousifnazeer408@gmail.com" style="color:#3b82f6;">yousifnazeer408@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/muhammad-yousif-nazeer-9a389137a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" style="color:#3b82f6;">View Profile</a></p>
+    <p>GitHub: <a href="https://github.com/yousifnazeer" target="_blank" style="color:#3b82f6;">yousifnazeer</a></p>
   </div>
 </section>
 
@@ -165,6 +119,26 @@ footer { text-align:center; padding:40px 20px; background:#020617; color:#64748b
 <footer>
   © 2026 Yousif Nazeer | Built with GitHub Pages
 </footer>
+
+<!-- Particles JS Initialization -->
+<script>
+particlesJS("particles-js", {
+  "particles": {
+    "number": { "value":60, "density": { "enable": true, "value_area": 800 } },
+    "color": { "value": "#3b82f6" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.6 },
+    "size": { "value": 3 },
+    "line_linked": { "enable": true, "distance": 150, "color": "#3b82f6", "opacity": 0.4, "width": 1 },
+    "move": { "enable": true, "speed": 2 }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": { "onhover": { "enable": true, "mode": "repulse" } }
+  },
+  "retina_detect": true
+});
+</script>
 
 </body>
 </html>
