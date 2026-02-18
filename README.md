@@ -1,27 +1,342 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yousif Nazeer | AI Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yousif Nazeer | AI Enthusiast</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #f0f0f0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-<!-- Particles.js CDN -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    /* Particles background */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #0a0f1e; /* fallback dark color */
+    }
 
-<style>
-/* Global */
-* { box-sizing: border-box; margin:0; padding:0; scroll-behavior:smooth; font-family: 'Roboto', sans-serif;}
-body { background:#0f172a; color:#fff; overflow-x:hidden; }
+    /* Main content container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
 
-/* Particles background */
-#particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; }
+    /* Glassmorphism cards */
+    .glass-card {
+      background: rgba(20, 30, 45, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-/* Header */
-header {
-  text-align: center;
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      border-left: 6px solid #3b82f6;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .subhead {
+      font-size: 1.3rem;
+      color: #b0c4de;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #3b82f6;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+
+    /* Skills tags */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      color: #e2e8f0;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover {
+      background: #3b82f6;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Project card */
+    .project-card {
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 20px;
+      padding: 1.8rem;
+      border-left: 6px solid #3b82f6;
+      transition: 0.3s;
+    }
+
+    .project-card p {
+      margin: 1rem 0 1.5rem;
+      color: #cbd5e1;
+    }
+
+    .project-icon {
+      font-size: 2.5rem;
+      color: #3b82f6;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Contact section */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.8rem 1.5rem;
+      border-radius: 60px;
+      transition: 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-decoration: none;
+      color: #f0f0f0;
+    }
+
+    .contact-item i {
+      font-size: 1.4rem;
+      color: #3b82f6;
+    }
+
+    .contact-item:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: #3b82f6;
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 1.8rem; }
+      .container { padding: 1rem; }
+      .glass-card { padding: 1.5rem; }
+      .contact-links { flex-direction: column; gap: 1rem; }
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Particles container -->
+  <div id="particles-js"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="glass-card fade-in" style="animation-delay: 0.1s;">
+      <h1>Yousif Nazeer</h1>
+      <div class="subhead">BS Mathematics | AI Enthusiast</div>
+      <p style="max-width: 600px; margin-bottom: 1.5rem;">Passionate about developing intelligent AI agents and applying mathematical techniques to real-world problems.</p>
+      <a href="#contact" class="btn">Contact Me</a>
+    </header>
+
+    <!-- About -->
+    <section class="glass-card fade-in" style="animation-delay: 0.2s;">
+      <h2>About Me</h2>
+      <p style="font-size: 1.1rem;">I am a Mathematics student passionate about Artificial Intelligence. I love developing AI agents and learning new mathematical techniques to solve real-world problems.</p>
+    </section>
+
+    <!-- Skills -->
+    <section class="glass-card fade-in" style="animation-delay: 0.3s;">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Machine Learning</span>
+        <span class="skill-tag">Artificial Neural Networks</span>
+        <span class="skill-tag">Optimization Theory</span>
+        <span class="skill-tag">Mathematical Modeling</span>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="glass-card fade-in" style="animation-delay: 0.4s;">
+      <h2>Projects</h2>
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-robot"></i></div>
+        <h3>AI Agent</h3>
+        <p>Developed an intelligent AI agent to understand and respond to inputs. This is my main project, showcasing natural language understanding and decision-making.</p>
+        <span style="color: #3b82f6; font-weight: 500;">Built with Python & Neural Networks</span>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="glass-card fade-in" style="animation-delay: 0.5s;">
+      <h2>Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:yousifnazeer408@gmail.com" class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>yousifnazeer408@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/yousifnazeer/" target="_blank" class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <span>View Profile</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Yousif Nazeer | Built with GitHub Pages</p>
+    </footer>
+  </div>
+
+  <script>
+    // Particles configuration (from your screenshot, enhanced)
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#3b82f6" },
+        shape: { type: "circle" },
+        opacity: { value: 0.6, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#3b82f6",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out"
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Optional smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>  text-align: center;
   padding: 150px 20px;
   background: linear-gradient(135deg, #1e3a8a, #2563eb);
   animation: gradient 10s ease infinite;
